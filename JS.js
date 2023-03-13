@@ -1,11 +1,13 @@
 function makeGrid(dimension) {
   let container = document.createElement("div");
   container.classList.add("container", "grid");
-  console.log("function called");
-  for (let i = 0; i < dimension; i++) {
+  for (let i = 0; i < dimension ** 2; i++) {
     let div = document.createElement("div");
-    div.addEventListener("mouseover", hovering);
-    container.appendChild(div);
+    container.appendChild(div).className = "cell";
   }
+  container.style.setProperty("--grid-rows", dimension);
+  container.style.setProperty("--grid-cols", dimension);
   document.body.appendChild(container);
 }
+
+makeGrid(10);
