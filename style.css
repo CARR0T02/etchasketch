@@ -22,10 +22,15 @@ body {
   box-sizing: border-box;
 }
 
+button {
+  padding: 1rem;
+  margin: 2rem;
+}
+
 .container {
   border: 5px solid var(--clr-dark-800);
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 85%;
   margin: auto;
 }
 
@@ -40,7 +45,6 @@ body {
   border: 1px solid black;
 }
 
-.cell:hover,
 .hovering {
   background-color: var(--clr-light-400);
 }
