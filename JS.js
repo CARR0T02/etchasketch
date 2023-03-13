@@ -4,7 +4,9 @@ function makeGrid(dimension) {
   for (let i = 0; i < dimension ** 2; i++) {
     let div = document.createElement("div");
     div.addEventListener("mouseover", hovering);
-    div.addEventListener("click", changeColor);
+    div.addEventListener("mouseover", changeColor);
+    div.addEventListener("mouseleave", hovering);
+    div.addEventListener("mousedown", changeColor);
     container.appendChild(div).className = "cell";
   }
   container.style.setProperty("--grid-rows", dimension);
@@ -13,10 +15,7 @@ function makeGrid(dimension) {
 }
 
 function hovering(e) {
-  e.target.classList.add("hovering");
-  setTimeout(() => {
-    e.target.classList.remove("hovering");
-  }, 200);
+  e.target.classList.toggle("hovering");
 }
 
 function changeDimension() {
@@ -29,7 +28,6 @@ function changeDimension() {
     return;
   }
   container = document.querySelector(".container");
-  console.log(container);
   document.body.removeChild(container);
   makeGrid(dimension);
 }
@@ -43,6 +41,8 @@ function reset() {
 
 function changeColor(e) {
   console.log(e);
-  e.target.classList.add("colored");
+  if (e.buttons == 1) {
+    e.target.classList.toggle("colored");
+  }
 }
 makeGrid(10);
