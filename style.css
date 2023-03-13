@@ -42,9 +42,14 @@ button {
 
 .cell {
   background-color: aqua;
-  border: 1px solid black;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .hovering {
   background-color: var(--clr-light-400);
+}
+
+.colored {
+  background-color: var(--clr-dark-800);
 }
