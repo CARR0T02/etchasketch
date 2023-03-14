@@ -9,13 +9,16 @@
     <title>Etch-a-Sketch</title>
   </head>
   <body>
-    <div id="sliderContainer">
-      <div id="circle"></div>
+    <div id="contentContainer">
+      <div id="sliderContainer">
+        <p id="dimensionDisplay"></p>
+        <input type="range" id="dimensionSlider" min="10" max="100" />
+      </div>
+      <div id="instructions">Left click to draw, right click to erase.</div>
+      <button onclick="changeDimension()">
+        Press button to change grid dimensions!
+      </button>
+      <button onclick="reset()">Reset</button>
     </div>
-    <div id="instructions">Left click to draw, right click to erase.</div>
-    <button onclick="changeDimension()">
-      Press button to change grid dimensions!
-    </button>
-    <button onclick="reset()">Reset</button>
   </body>
 </html>

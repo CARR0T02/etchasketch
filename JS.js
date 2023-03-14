@@ -17,6 +17,7 @@ function makeGrid(dimension) {
   container.style.setProperty("--grid-cols", dimension);
 
   document.body.appendChild(container);
+  updateDisplay(dimension);
 }
 
 function hovering(e) {
@@ -51,5 +52,10 @@ function changeColor(e) {
   if (e.buttons == 2) {
     e.target.classList.remove("colored");
   }
+}
+
+function updateDisplay(dimension) {
+  display = document.getElementById("dimensionDisplay");
+  display.textContent = `${dimension} x ${dimension}`;
 }
 makeGrid(10);
