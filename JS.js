@@ -47,6 +47,7 @@ function reset() {
 }
 
 function changeColor(e) {
+  e.preventDefault();
   if (e.buttons == 1) {
     e.target.classList.add("colored");
   }
