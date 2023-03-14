@@ -1,13 +1,14 @@
 function makeGrid(dimension) {
   let container = document.createElement("div");
   container.classList.add("container", "grid");
+  container.addEventListener("mousedown", changeColor);
+  container.addEventListener("mouseover", hovering);
+  container.addEventListener("mouseover", changeColor);
+  container.addEventListener("mouseleave", hovering);
   for (let i = 0; i < dimension ** 2; i++) {
     let div = document.createElement("div");
     div.setAttribute("draggable", "false");
-    div.addEventListener("mouseover", hovering);
-    div.addEventListener("mouseover", changeColor);
     div.addEventListener("mouseleave", hovering);
-    div.addEventListener("mousedown", changeColor);
     container.appendChild(div).className = "cell";
   }
   container.addEventListener("contextmenu", (e) => {
