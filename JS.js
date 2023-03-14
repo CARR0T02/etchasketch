@@ -3,14 +3,19 @@ function makeGrid(dimension) {
   container.classList.add("container", "grid");
   for (let i = 0; i < dimension ** 2; i++) {
     let div = document.createElement("div");
+    div.setAttribute("draggable", "false");
     div.addEventListener("mouseover", hovering);
     div.addEventListener("mouseover", changeColor);
     div.addEventListener("mouseleave", hovering);
     div.addEventListener("mousedown", changeColor);
     container.appendChild(div).className = "cell";
   }
+  container.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
   container.style.setProperty("--grid-rows", dimension);
   container.style.setProperty("--grid-cols", dimension);
+
   document.body.appendChild(container);
 }
 
@@ -40,9 +45,11 @@ function reset() {
 }
 
 function changeColor(e) {
-  console.log(e);
   if (e.buttons == 1) {
-    e.target.classList.toggle("colored");
+    e.target.classList.add("colored");
+  }
+  if (e.buttons == 2) {
+    e.target.classList.remove("colored");
   }
 }
 makeGrid(10);
